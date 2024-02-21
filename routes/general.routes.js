@@ -32,8 +32,10 @@ const router = express.Router()
  *                properties:
  *                  CodEstadoCivil:
  *                    type: number
+ *                    default: 0
  *                  NomEstadoCivil:
  *                    type: string
+ *                    default: ''
  *       400:
  *         description: Bad request
  */
@@ -58,8 +60,10 @@ router.get('/api/General/estadoCivil', listaEstadoCivil)
  *                properties:
  *                  CodAreaLaboral:
  *                    type: number
+ *                    default: 0
  *                  NomAreaLaboral:
  *                    type: string
+ *                    default: ''
  *       400:
  *         description: Bad request
  */
@@ -84,8 +88,10 @@ router.get('/api/General/areaLaboral', listaAreaLaboral)
  *                properties:
  *                  CodAreaLaboral:
  *                    type: number
+ *                    default: 0
  *                  NomAreaLaboral:
  *                    type: string
+ *                    default: ''
  *       400:
  *         description: Bad request
  */
@@ -110,8 +116,10 @@ router.get('/api/General/funcionLaboral', listaFuncionLaboral)
  *                properties:
  *                  CodModalidadLaboral:
  *                    type: number
+ *                    default: 0
  *                  NomModalidadLaboral:
  *                    type: string
+ *                    default: ''
  *       400:
  *         description: Bad request
  */
@@ -136,8 +144,10 @@ router.get('/api/General/modalidadLaboral', listaModalidadLaboral)
  *                properties:
  *                  CodNivelAcademico:
  *                    type: number
+ *                    default: 0
  *                  NomNivelAcademico:
  *                    type: string
+ *                    default: ''
  *       400:
  *         description: Bad request
  */
@@ -162,8 +172,10 @@ router.get('/api/General/nivelAcademico', listaNivelAcademico)
  *                properties:
  *                  CodRegion:
  *                    type: number
+ *                    default: 0
  *                  NomRegion:
  *                    type: string
+ *                    default: ''
  *       400:
  *         description: Bad request
  */
@@ -188,8 +200,10 @@ router.get('/api/General/region', listaRegion)
  *                properties:
  *                  CodSexo:
  *                    type: number
+ *                    default: 0
  *                  NomSexo:
  *                    type: string
+ *                    default: ''
  *       400:
  *         description: Bad request
  */
@@ -214,8 +228,10 @@ router.get('/api/General/sexo', listaSexo)
  *                properties:
  *                  CodTipoDocumento:
  *                    type: number
+ *                    default: 0
  *                  NomTipoDocumento:
  *                    type: string
+ *                    default: ''
  *       400:
  *         description: Bad request
  */
@@ -240,8 +256,10 @@ router.get('/api/General/tipoDocumento', listaTipoDocumento)
  *                properties:
  *                  CodPersonaTipo:
  *                    type: number
+ *                    default: 0
  *                  NomPersonaTipo:
  *                    type: string
+ *                    default: ''
  *       400:
  *         description: Bad request
  */
@@ -266,8 +284,10 @@ router.get('/api/General/personaTipo', listaPersonaTipo)
  *                properties:
  *                  CodTipoUsuario:
  *                    type: number
+ *                    default: 0
  *                  NomTipoUsuario:
  *                    type: string
+ *                    default: ''
  *       400:
  *         description: Bad request
  */

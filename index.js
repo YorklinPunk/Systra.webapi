@@ -22,13 +22,16 @@ const config = { ///module. export
 
 sql.connect(config)
     .then(() => console.log("conexion exitosa"))
-    .catch(err => console.log("error en la conexion -> ",err))
+    .catch(err => {
+        console.log("error en la conexion -> ",err)
+        console.error(err.stack);
+    })
 //----
 
 app.use(express.json())
 app.use(router)
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://192.168.1.122:${port}`)
+  console.log(`Example app listening at http://localhost:${port}`)
   swaggerDocs(app, port)
 })
