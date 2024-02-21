@@ -9,13 +9,14 @@ const port = 4000
 //----
 const config = { ///module. export
   // user: 'userWeb',
-  user: 'ylazaro',
+  user: 'yorklin',
   password: '123',
-  server: '192.168.1.122',  // o la dirección de tu servidor SQL Server
+  server: '35.232.47.253',//'192.168.1.122',  // o la dirección de tu servidor SQL Server
   database: 'Systra',
   options: {
-      encrypt: false,  // Si estás utilizando una conexión encriptada, establece esto en true
-      port: 1433
+      encrypt: true,  // Si estás utilizando una conexión encriptada, establece esto en true
+      //port: 1433
+      trustServerCertificate: true,
   },
 };
 
@@ -28,6 +29,6 @@ app.use(express.json())
 app.use(router)
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+  console.log(`Example app listening at http://192.168.1.122:${port}`)
   swaggerDocs(app, port)
 })
