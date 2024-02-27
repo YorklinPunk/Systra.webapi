@@ -4,7 +4,7 @@ import swaggerDocs from './swagger.js'
 import sql from 'mssql';
 
 const app = express()
-const port = 4000
+const port = process.env.PORT || 4000;
 
 //----
 const config = { ///module. export
