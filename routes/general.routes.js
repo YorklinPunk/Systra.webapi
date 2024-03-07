@@ -8,7 +8,12 @@ import {    listaEstadoCivil,
             listaSexo,
             listaTipoDocumento,
             listaPersonaTipo,
-            listUsuarioTipo
+            listUsuarioTipo,
+            listaDepartamentos,
+            listaProvincias,
+            listaDistritos,
+            listaDelitoGenerico,
+            listaDelitoEspecifico
     } from '../controllers/general.controller.js'
 
 const router = express.Router()
@@ -19,7 +24,6 @@ const router = express.Router()
  *  get:
  *     tags:
  *     - General
- *     summary: Get all status
  *     responses:
  *       200:
  *         description: Success
@@ -47,7 +51,6 @@ router.get('/api/General/estadoCivil', listaEstadoCivil)
  *  get:
  *     tags:
  *     - General
- *     summary: Get all status
  *     responses:
  *       200:
  *         description: Success
@@ -75,7 +78,6 @@ router.get('/api/General/areaLaboral', listaAreaLaboral)
  *  get:
  *     tags:
  *     - General
- *     summary: Get all status
  *     responses:
  *       200:
  *         description: Success
@@ -103,7 +105,6 @@ router.get('/api/General/funcionLaboral', listaFuncionLaboral)
  *  get:
  *     tags:
  *     - General
- *     summary: Get all status
  *     responses:
  *       200:
  *         description: Success
@@ -131,7 +132,6 @@ router.get('/api/General/modalidadLaboral', listaModalidadLaboral)
  *  get:
  *     tags:
  *     - General
- *     summary: Get all status
  *     responses:
  *       200:
  *         description: Success
@@ -159,7 +159,6 @@ router.get('/api/General/nivelAcademico', listaNivelAcademico)
  *  get:
  *     tags:
  *     - General
- *     summary: Get all status
  *     responses:
  *       200:
  *         description: Success
@@ -187,7 +186,6 @@ router.get('/api/General/region', listaRegion)
  *  get:
  *     tags:
  *     - General
- *     summary: Get all status
  *     responses:
  *       200:
  *         description: Success
@@ -215,7 +213,6 @@ router.get('/api/General/sexo', listaSexo)
  *  get:
  *     tags:
  *     - General
- *     summary: Get all status
  *     responses:
  *       200:
  *         description: Success
@@ -243,7 +240,6 @@ router.get('/api/General/tipoDocumento', listaTipoDocumento)
  *  get:
  *     tags:
  *     - General
- *     summary: Get all status
  *     responses:
  *       200:
  *         description: Success
@@ -271,7 +267,6 @@ router.get('/api/General/personaTipo', listaPersonaTipo)
  *  get:
  *     tags:
  *     - General
- *     summary: Get all status
  *     responses:
  *       200:
  *         description: Success
@@ -293,4 +288,238 @@ router.get('/api/General/personaTipo', listaPersonaTipo)
  */
 router.get('/api/General/usuarioTipo', listUsuarioTipo)
 
+/**
+ * @openapi
+ * '/api/General/comboDepartamento':
+ *  get:
+ *     tags:
+ *     - General
+ *     responses:
+ *       200:
+ *         description: Success
+ *         content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                  isValid:
+ *                      type: bool
+ *                      default: true
+ *                  exceptions:
+ *                      type: array
+ *                      items:
+ *                          type: object
+ *                          properties:
+ *                              code:
+ *                                  type: string
+ *                                  default: "string"
+ *                              description:
+ *                                  type: string
+ *                                  default: "string"
+ *                  content:
+ *                      type: array
+ *                      items:    
+ *                          type: object                  
+ *                          properties:
+ *                              CodDepartamento:
+ *                                  type: number
+ *                                  default: 0
+ *                              NomDepartamento:
+ *                                  type: string
+ *                                  default: 'string'
+ *       400:
+ *         description: Bad request
+ */
+router.get('/api/General/comboDepartamento', listaDepartamentos)
+
+/**
+ * @openapi
+ * '/api/General/comboProvincia':
+ *  get:
+ *     tags:
+ *     - General
+ *     parameters:
+ *       - in: query
+ *         name: CodDepartamento
+ *         required: true
+ *         type: int
+ *     responses:
+ *       200:
+ *         description: Success
+ *         content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                  isValid:
+ *                      type: bool
+ *                      default: true
+ *                  exceptions:
+ *                      type: array
+ *                      items:
+ *                          type: object
+ *                          properties:
+ *                              code:
+ *                                  type: string
+ *                                  default: "string"
+ *                              description:
+ *                                  type: string
+ *                                  default: "string"
+ *                  content:
+ *                      type: array
+ *                      items:    
+ *                          type: object                  
+ *                          properties:
+ *                              CodProvincia:
+ *                                  type: number
+ *                                  default: 0
+ *                              NomProvincia:
+ *                                  type: string
+ *                                  default: 'string'
+ *       400:
+ *         description: Bad request
+ */
+router.get('/api/General/comboProvincia', listaProvincias)
+
+/**
+ * @openapi
+ * '/api/General/comboDistrito':
+ *  get:
+ *     tags:
+ *     - General
+ *     parameters:
+ *       - in: query
+ *         name: CodProvincia
+ *         required: true
+ *         type: int
+ *     responses:
+ *       200:
+ *         description: Success
+ *         content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                  isValid:
+ *                      type: bool
+ *                      default: true
+ *                  exceptions:
+ *                      type: array
+ *                      items:
+ *                          type: object
+ *                          properties:
+ *                              code:
+ *                                  type: string
+ *                                  default: "string"
+ *                              description:
+ *                                  type: string
+ *                                  default: "string"
+ *                  content:
+ *                      type: array
+ *                      items:    
+ *                          type: object                  
+ *                          properties:
+ *                              CodDistrito:
+ *                                  type: number
+ *                                  default: 0
+ *                              NomDistrito:
+ *                                  type: string
+ *                                  default: 'string'
+ *       400:
+ *         description: Bad request
+ */
+router.get('/api/General/comboDistrito', listaDistritos)
+
+/**
+ * @openapi
+ * '/api/General/comboDelitoGenerico':
+ *  get:
+ *     tags:
+ *     - General
+ *     responses:
+ *       200:
+ *         description: Success
+ *         content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                  isValid:
+ *                      type: bool
+ *                      default: true
+ *                  exceptions:
+ *                      type: array
+ *                      items:
+ *                          type: object
+ *                          properties:
+ *                              code:
+ *                                  type: string
+ *                                  default: "string"
+ *                              description:
+ *                                  type: string
+ *                                  default: "string"
+ *                  content:
+ *                      type: array
+ *                      items:    
+ *                          type: object                  
+ *                          properties:
+ *                              CodDelitoGenerico:
+ *                                  type: number
+ *                                  default: 0
+ *                              NomDelitoGenerico:
+ *                                  type: string
+ *                                  default: 'string'
+ *       400:
+ *         description: Bad request
+ */
+router.get('/api/General/comboDelitoGenerico', listaDelitoGenerico)
+
+/**
+ * @openapi
+ * '/api/General/comboDelitoEspecifico':
+ *  get:
+ *     tags:
+ *     - General
+ *     parameters:
+ *       - in: query
+ *         name: CodDelitoGenerico
+ *         required: true
+ *         type: int
+ *     responses:
+ *       200:
+ *         description: Success
+ *         content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                  isValid:
+ *                      type: bool
+ *                      default: true
+ *                  exceptions:
+ *                      type: array
+ *                      items:
+ *                          type: object
+ *                          properties:
+ *                              code:
+ *                                  type: string
+ *                                  default: "string"
+ *                              description:
+ *                                  type: string
+ *                                  default: "string"
+ *                  content:
+ *                      type: array
+ *                      items:    
+ *                          type: object                  
+ *                          properties:
+ *                              CodDelitoEspecifico:
+ *                                  type: number
+ *                                  default: 0
+ *                              NomDelitoEspecifico:
+ *                                  type: string
+ *                                  default: 'string'
+ *       400:
+ *         description: Bad request
+ */
+router.get('/api/General/comboDelitoEspecifico', listaDelitoEspecifico)
 export default router

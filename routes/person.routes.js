@@ -67,7 +67,7 @@ router.get('/api/Person/total', listarPersonas)
  *  get:
  *     tags:
  *     - Person
- *     summary: Get people
+ *     summary: Get a people
  *     parameters:
  *       - in: query
  *         name: CodPersona
@@ -79,40 +79,38 @@ router.get('/api/Person/total', listarPersonas)
  *         content:
  *          application/json:
  *            schema:
- *              type: array
- *              items:
- *                type: object
- *                properties:
- *                  CodPersona:
- *                    type: number
- *                    default: 0
- *                  CodigoTrabajador:
- *                    type: number
- *                    default: 0
- *                  ApPaterno:
- *                    type: string
- *                    default: ''
- *                  ApMaterno:
- *                    type: string
- *                    default: ''
- *                  NomPersona:
- *                    type: string
- *                    default: ''
- *                  NomPersonaTipo:
- *                    type: string
- *                    default: ''
- *                  NumeroDocumento:
- *                    type: string
- *                    default: ''
- *                  Telefono:
- *                    type: string
- *                    default: ''
- *                  NomAreaLaboral:
- *                    type: string
- *                    default: ''
- *                  CodEstado:
- *                    type: int
- *                    default: 0
+ *             type: object
+ *             properties:
+ *               CodPersona:
+ *                 type: number
+ *                 default: 0
+ *               CodigoTrabajador:
+ *                 type: number
+ *                 default: 0
+ *               ApPaterno:
+ *                 type: string
+ *                 default: ''
+ *               ApMaterno:
+ *                 type: string
+ *                 default: ''
+ *               NomPersona:
+ *                 type: string
+ *                 default: ''
+ *               NomPersonaTipos:
+ *                 type: string
+ *                 default: ''
+ *               NumeroDocumento:
+ *                 type: string
+ *                 default: ''
+ *               Telefono:
+ *                 type: string
+ *                 default: ''
+ *               NomAreaLaboral:
+ *                 type: string
+ *                 default: ''
+ *               CodEstado:
+ *                 type: int
+ *                 default: 0
  *       400:
  *         description: Bad request
  */
@@ -134,7 +132,7 @@ router.get('/api/Person', listarPersona)
  *            properties: 
  *              CodigoTrabajador:
  *                  type: number
- *                  default: null
+ *                  default: 0
  *              ApPaterno:
  *                  type: string
  *                  default: ''
@@ -146,13 +144,13 @@ router.get('/api/Person', listarPersona)
  *                  default: ''
  *              CodPersonaTipo:
  *                  type: number
- *                  default: null
+ *                  default: 0
  *              CodAreaLaboral:
  *                  type: number
- *                  default: null
+ *                  default: 0
  *              CodTipoDocumento:
  *                  type: number
- *                  default: null
+ *                  default: 0
  *              NumeroDocumento:
  *                  type: string
  *                  default: ''
@@ -161,13 +159,13 @@ router.get('/api/Person', listarPersona)
  *                  default: ''
  *              CodSexo:
  *                  type: number
- *                  default: null
+ *                  default: 0
  *              CodEstadoCivil:
  *                  type: number
- *                  default: null
+ *                  default: 0
  *              CodNivelEstudio:
  *                  type: number
- *                  default: null
+ *                  default: 0
  *              Especialidad:
  *                  type: string
  *                  default: ''
@@ -176,25 +174,25 @@ router.get('/api/Person', listarPersona)
  *                  default: ''
  *              CodUsuarioCreacion:
  *                  type: number
- *                  default: null
+ *                  default: 0
  *              CodNivelAcademico:
  *                  type: number
- *                  default: null
+ *                  default: 0
  *              CodModalidadLaboral:
  *                  type: number
- *                  default: null
+ *                  default: 0
  *              CodFuncionLaboral:
  *                  type: number
- *                  default: null
+ *                  default: 0
  *              CondicionLaboral:
  *                  type: number
- *                  default: null
+ *                  default: 0
  *              FechaIngreso:
  *                  type: number
- *                  default: null
+ *                  default: 0
  *              CodProcedencia:
  *                  type: number
- *                  default: null
+ *                  default: 0
  *     responses:
  *      201:
  *        description: Created
@@ -221,7 +219,7 @@ router.post('/api/Person', guardarPersona)
  *            properties: 
  *              CodPersona:
  *                  type: number
- *                  default: null
+ *                  default: 0
  *              ApPaterno:
  *                  type: string
  *                  default: ''
@@ -233,19 +231,19 @@ router.post('/api/Person', guardarPersona)
  *                  default: ''
  *              CodPersonaTipo:
  *                  type: number
- *                  default: null
+ *                  default: 0
  *              CodAreaLaboral:
  *                  type: number
- *                  default: null
+ *                  default: 0
  *              FechaNacimiento:
  *                  type: string
  *                  default: ''
  *              CodEstadoCivil:
  *                  type: number
- *                  default: null
+ *                  default: 0
  *              CodNivelEstudio:
  *                  type: number
- *                  default: null
+ *                  default: 0
  *              Especialidad:
  *                  type: string
  *                  default: ''
@@ -254,25 +252,25 @@ router.post('/api/Person', guardarPersona)
  *                  default: ''
  *              CodUsuarioEdicion:
  *                  type: number
- *                  default: null
+ *                  default: 0
  *              CodNivelAcademico:
  *                  type: number
- *                  default: null
+ *                  default: 0
  *              CodModalidadLaboral:
  *                  type: number
- *                  default: null
+ *                  default: 0
  *              CondicionLaboral:
  *                  type: number
- *                  default: null
+ *                  default: 0
  *              FechaIngreso:
  *                  type: number
- *                  default: null
+ *                  default: 0
  *              CodProcedencia:
  *                  type: number
- *                  default: null
+ *                  default: 0
  *              CodEstado:
  *                  type: number
- *                  default: null
+ *                  default: 0
  *     responses:
  *      201:
  *        description: Created
@@ -299,10 +297,10 @@ router.put('/api/Person',editarPersona)
  *            properties: 
  *              CodUsuarioAccion:
  *                  type: number
- *                  default: null
+ *                  default: 0
  *              CodPersona:
  *                  type: number
- *                  default: null
+ *                  default: 0
  *              ComentarioEliminacion:
  *                  type: string
  *                  default: ''
