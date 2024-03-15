@@ -9,13 +9,14 @@ const port = process.env.PORT || 4000;
 //----
 const config = { ///module. export
   // user: 'userWeb',
-  user: 'yorklin',
+  user: 'ylazaro',
   password: '123',
-  server: '35.232.47.253',//'192.168.1.122',  // o la dirección de tu servidor SQL Server
-  database: 'Systra',
+  server: /*'35.232.47.253',*/'192.168.1.122',  // o la dirección de tu servidor SQL Server
+  database: 'SystraGeneral',
   options: {
+      //trustedConnection: true,
       encrypt: true,  // Si estás utilizando una conexión encriptada, establece esto en true
-      //port: 1433
+      port: 1433,
       trustServerCertificate: true,
   },
 };

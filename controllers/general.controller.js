@@ -12,7 +12,7 @@ async function listarDatos(params,tableName,Aux) {
     }
   } catch (error) {
     if (error.code === 'EREQUEST') {
-      return getCustomResponse(404, `Invalid object name ${tableName}`, '');
+      return getCustomResponse(404, error.message, '');
     } else {
       return getCustomResponse(500, 'Error interno del servidor', '');
     }

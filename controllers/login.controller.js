@@ -2,25 +2,6 @@ import sql from 'mssql';
 import crypto from 'crypto';
 import { getCustomResponse } from '../layouts/customResponse.js';
 
-async function listarDatos(proc,param,Indice){
-    try {
-        const request = new sql.Request();
-        const result = await request.query(`${proc} '${param}',${Indice}`);
-        if (result) {
-            return getCustomResponse(200, '',result.recordsets); //recordsets cuando son mas de una tabla
-        } else {
-            throw new Error(`No se encontraron datos en la tabla`);
-        }
-    } catch (error) {
-        console.log("-->",error)
-        if (error.code === 'EREQUEST') {
-            return getCustomResponse(404, `Invalid object name`, '');
-        } else {
-            return getCustomResponse(500, 'Error interno del servidor', '');
-        }
-    }
-}
-
 export async function login(req,res) {
     const requestQuery = req.query;
     
